@@ -1,0 +1,22 @@
+{
+  "name": "filter-kahvia",
+  "version": "0.0.1",
+  "description": "AEC Hackathon CPH",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadsHolten/filter-kahvia.git"
+  },
+  "keywords": [
+    "bim"
+  ],
+  "author": "Mads Holten Rasmussen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MadsHolten/filter-kahvia/issues"
+  },
+  "homepage": "https://github.com/MadsHolten/filter-kahvia#readme"
+}
