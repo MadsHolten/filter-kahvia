@@ -5,7 +5,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatDialogModule } from '@angular/material';
 
 // FxFlex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -34,7 +34,9 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    OverlayModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
