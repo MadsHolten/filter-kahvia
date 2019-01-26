@@ -10,26 +10,36 @@ import { GeoModelService } from './services/geo-model.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'filter-kahvia2';
-
-  data;
+  data3d;
+  data2d
+  viewMode: string = '3d';
 
   constructor(
     private _gms: GeoModelService
   ){}
 
   ngOnInit(){
-    console.log("hello world")
-    this.getSome();
+    this.getSome3D();
+    this.getSome2D();
   }
 
-  public getSome(){
+  public getSome3D(){
     this._gms.getSpaceModel().subscribe(res => {
-      this.data = res.data;
+      var data = res.data;
+      this._gms.getPipes().subscribe(res => {
+        this.data3d = data.concat(res.data);
+      }, err => console.log(err));
+    }, err => console.log(err));
+  }
+
+  public getSome2D(){
+    this._gms.getRooms2D().subscribe(res => {
+      this.data2d = res.data;
     }, err => console.log(err));
   }
 
   public clickedRoom(ev){
+    console.log(ev);
     this._gms.getResourceData(ev.uri).subscribe(res => {
       console.log(res);
     }, err => console.log(err));

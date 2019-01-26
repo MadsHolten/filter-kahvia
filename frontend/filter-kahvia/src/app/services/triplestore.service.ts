@@ -12,7 +12,7 @@ export interface ProjectSettings {
 @Injectable()
 export class TriplestoreService {
 
-    private endpoint: string = "http://10.2.61.134:3030/test/query";
+    private endpoint: string = "http://10.2.61.126:3030/1/query";
 
     constructor(
         public http: HttpClient
