@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PopupComponent } from '../../popup/popup.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MessageDialogComponent } from '../dialogs/message-dialog.component';
 
@@ -17,6 +18,13 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  showHeatingDemands(){
+    let dialogRef = this.dialog.open(PopupComponent, {
+      height: '500px',
+      width: '900px',
+    });
   }
 
   showAbout(){

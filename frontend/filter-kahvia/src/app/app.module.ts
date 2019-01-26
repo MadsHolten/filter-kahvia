@@ -1,13 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { FormsModule } from '@angular/forms';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
 import { MatToolbarModule, MatIconModule, 
          MatMenuModule, MatButtonModule,
-         MatDialogModule } from '@angular/material';
+         MatDialogModule, MatTableModule,
+         MatSortModule, MatInputModule } from '@angular/material';
 
 // FxFlex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,6 +23,7 @@ import { AppComponent } from './app.component';
 import { PopupComponent } from './popup/popup.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MessageDialogComponent } from './components/dialogs/message-dialog.component';
+import { HeatingTableComponent } from './heating-table/heating-table.component';
 
 // Pipes
 import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
@@ -31,7 +38,8 @@ import { PlanModule } from 'ng-plan';
     AppComponent,
     PopupComponent,
     ToolbarComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    HeatingTableComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +53,16 @@ import { PlanModule } from 'ng-plan';
     MatIconModule,
     PlanModule,
     MatMenuModule,
+    OverlayModule,
+    MatDialogModule,
+    MarkdownToHtmlModule,
+    MatTableModule,
+    MatSortModule,
+    FormsModule,
+    MatInputModule,
     MarkdownToHtmlModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [MessageDialogComponent, PopupComponent]

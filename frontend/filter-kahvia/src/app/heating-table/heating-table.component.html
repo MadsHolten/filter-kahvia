@@ -1,0 +1,40 @@
+  <div class="example-container mat-elevation-z8">
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput #filter (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          <button mat-icon-button matSuffix aria-label="clear" *ngIf="filter.value" (click)="filter.value=''; applyFilter('');">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    
+      <mat-table #table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input matInput placeholder="Name" [value]="element.name" [(ngModel)]="element.name">
+          </mat-cell>
+        </ng-container>
+
+        <!-- Demand Column -->
+        <ng-container matColumnDef="demand">
+            <mat-header-cell *matHeaderCellDef> Demand </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                  <input matInput placeholder="Demand" [value]="element.demand" [(ngModel)]="element.demand">
+            </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    
+    
