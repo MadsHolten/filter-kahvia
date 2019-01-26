@@ -1,0 +1,8 @@
+<table mat-table [dataSource]="dataSource">
+  
+  <ng-container matColumnDef="spaceName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let space"> {{space.name}} </td>
+  </ng-container>
+
+</table>
