@@ -58,6 +58,7 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
     MatSortModule,
     FormsModule,
     MatInputModule,
+    MarkdownToHtmlModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
