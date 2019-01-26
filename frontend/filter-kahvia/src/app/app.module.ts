@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,6 +47,6 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [MessageDialogComponent]
+  entryComponents: [MessageDialogComponent, PopupComponent]
 })
 export class AppModule { }
