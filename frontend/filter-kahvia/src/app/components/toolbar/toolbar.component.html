@@ -4,7 +4,7 @@
   <div fxLayoutAlign="space-around end">
     <!-- Logo -->
     <div class="logo-group">
-      <!-- <img class="logo" src="./assets/niras-logo.svg"> -->
+      <img class="logo" src="./assets/aech.svg">
       <span class="title">Filter Kahvia</span>
     </div>
   </div>
@@ -19,7 +19,7 @@
 
   <!-- Menu items -->
   <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="showAbout()">
         <mat-icon>info_outline</mat-icon>
         <span>About</span>
       </button>

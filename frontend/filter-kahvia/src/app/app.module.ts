@@ -4,7 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, 
+         MatMenuModule, MatButtonModule,
+         MatDialogModule } from '@angular/material';
 
 // FxFlex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -13,6 +15,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { PopupComponent } from './popup/popup.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MessageDialogComponent } from './components/dialogs/message-dialog.component';
+
+// Pipes
+import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 
 // 3rd party modules
 // import { MeshViewerModule } from 'ng-mesh-viewer';                    // NPM version
@@ -22,20 +28,24 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
   declarations: [
     AppComponent,
     PopupComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    MessageDialogComponent
   ],
   imports: [
     BrowserModule,
     MeshViewerModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MarkdownToHtmlModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MessageDialogComponent]
 })
 export class AppModule { }
