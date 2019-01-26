@@ -4,26 +4,36 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule } from '@angular/material';
 
+// FxFlex
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+// App components
 import { AppComponent } from './app.component';
+import { PopupComponent } from './popup/popup.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 // 3rd party modules
 // import { MeshViewerModule } from 'ng-mesh-viewer';                    // NPM version
-import { MeshViewerModule } from './modules/ng-mesh-viewer.module';
-import { PopupComponent } from './popup/popup.component';   // Local version
+import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local version
 
 @NgModule({
   declarations: [
     AppComponent,
-    PopupComponent
+    PopupComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
     MeshViewerModule,
+    FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

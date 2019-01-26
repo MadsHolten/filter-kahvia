@@ -1,0 +1,32 @@
+<mat-toolbar class="toolbar" fxLayoutAlign="space-around center">
+
+  <!-- Venstre -->
+  <div fxLayoutAlign="space-around end">
+    <!-- Logo -->
+    <div class="logo-group">
+      <!-- <img class="logo" src="./assets/niras-logo.svg"> -->
+      <span class="title">Filter Kahvia</span>
+    </div>
+  </div>
+
+  <span fxFlex="grow"></span>
+
+  <!-- Højre -->
+  <!-- Menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <!-- Menu items -->
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>info_outline</mat-icon>
+        <span>About</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>explore</mat-icon>
+        <span>Heating demands</span>
+      </button>
+  </mat-menu>
+
+</mat-toolbar>

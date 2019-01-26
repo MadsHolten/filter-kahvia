@@ -1,0 +1,10 @@
+mat-toolbar{
+    position: absolute;
+    z-index: 100;
+}
+.canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}

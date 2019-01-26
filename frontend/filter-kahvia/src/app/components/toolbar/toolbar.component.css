@@ -1,0 +1,12 @@
+.title{
+    font-size: 1.9em;
+    padding-left: 15px;
+    font-family: roboto thin;
+}
+.logo{
+    width: 120px;
+}
+.logo-group:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}

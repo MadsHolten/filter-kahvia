@@ -1,7 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges, Input, ViewChild, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
 import * as THREE from 'three';
 import OBJLoader from '@calvinscofield/three-objloader'
-// OBJLoader(THREE);
 import { OrbitControls } from '@avatsaev/three-orbitcontrols-ts';
 import * as d3 from 'd3-scale-chromatic';
 
@@ -108,9 +107,9 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
       light.position.set(0, 0, 1);
       this.scene.add(light);
 
-      // var light = new THREE.PointLight(0xffffff, 1, 1000);
-      // light.position.set(0, 1, 1);
-      // this.scene.add(light);
+      var light = new THREE.PointLight(0xffffff, 1, 1000);
+      light.position.set(0, 1, 1);
+      this.scene.add(light);
 
       return this.scene;
   }
@@ -119,8 +118,7 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
     var canvas = this.canvasRef.nativeElement;
     this.renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true, alpha: true } );
     this.renderer.setClearColor( 0xffffff, 0);
-    // this.renderer.setSize( window.innerWidth, window.innerHeight );
-    this.renderer.setSize( canvas.offsetWidth, canvas.offsetHeight );
+    this.renderer.setSize( window.innerWidth, window.innerHeight );
 
     return this.renderer;
   }
@@ -134,14 +132,21 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
     for(var geo of geometry){
 
         if(type == "zone"){
+            var opacity = geo.opacity ? geo.opacity : 0.5;
             var colorScheme = d3.schemeCategory10;
             var randInt = Math.floor(Math.random() * 10);
-            var color = new THREE.Color(colorScheme[randInt]);
-    
+            var color = geo.color ? geo.color : colorScheme[randInt];
+            color = new THREE.Color(color);
+
             // Define material
-            var material = new THREE.MeshBasicMaterial( { color: color, side: THREE.DoubleSide, opacity: 0.5, transparent: true, depthWrite: false } );
+            var material;
+            if(opacity<1){
+              material = new THREE.MeshBasicMaterial( { color: color, side: THREE.DoubleSide, opacity: opacity, transparent: true, depthWrite: false } );
+            } else {
+              material = new THREE.MeshBasicMaterial( { color: color } );
+            }
         }else if(type == "element"){
-            material = null;
+          material = null;
         }
 
         var promise = this.loadOBJ(geo.geometry, geo.uri, material);
@@ -149,9 +154,18 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
     }
 
     promises.forEach(p => {
-        p.then(obj => {
-            this.scene.add(obj);
-            this.spaceObjects.push(obj);
+        p.then(res => {
+            // Add object to scene
+            this.scene.add(res.object);
+
+            // Save to spaces if it is of type space
+            if(type == "zone"){
+              this.spaceObjects.push(res.object);
+            }
+
+            // Add edges to scene
+            // this.scene.add(res.edges);
+
             this.render();
         }).catch(err => console.log(err));
     })
@@ -169,14 +183,24 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
 
             try{
                 var myObj = objLoader.parse(objString);
+                var edges;
 
                 myObj.name = uri;
                 myObj.traverse(child => {
                     if(child.type == "Mesh"){
                         child.name = uri;
                         if(material) child.material = material;
+
+                        // // Get edges
+                        // edges = new THREE.EdgesHelper(child, 0x333333);
+                        // edges.material.linewidth = 2
                     }
                 });
+
+                // myObj.add(edges);
+                // console.log(myObj);
+                
+                // var line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) );
 
                 // if(this.showCentroids){
                 //     // Get centroid of space
@@ -194,7 +218,7 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
                 //     this.scene.add(centroid);
                 // }
 
-                resolve(myObj);
+                resolve({object: myObj, edges: edges});
 
             }catch(err){
                 reject(err);
@@ -206,14 +230,14 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
 
   private createCamera(): THREE.Camera {
     let aspectRatio = this.getAspectRatio();
-    var fov = 60;   // vertical field of view
+    var fov = 75;   // vertical field of view
     var near = 0.1; // near plane
     var far = 1000;  // far plane
 
     this.camera = new THREE.PerspectiveCamera( fov, aspectRatio, near, far );
     this.camera.up.set(0,0,1);    // z-axis up
     this.camera.lookAt( this.centroid );
-    this.camera.position.set(1.3, 0.5, 1.3);
+    this.camera.position.set(1.1, 0.5, 1.1);
 
     // fov = 2 * Math.atan( height / ( 2 * dist ) ) * ( 180 / Math.PI );
     this.camera.fov = 2 * Math.atan( 1 / ( 2 * 0.25 ) ) * ( 180 / Math.PI );
@@ -238,12 +262,11 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
 
   private getAspectRatio(): number {
       var canvas = this.canvasRef.nativeElement;
-      let height = canvas.offsetHeight;
-
+      let height = canvas.clientHeight;
       if (height === 0) {
           return 0;
       }
-      return canvas.offsetHeight / canvas.offsetWidth;
+      return canvas.clientWidth / canvas.clientHeight;
   }
 
   /* EVENTS */
