@@ -43,12 +43,8 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-<<<<<<< HEAD
     OverlayModule,
     MatDialogModule
-=======
-    MarkdownToHtmlModule
->>>>>>> 5faee3daddc0c2da06f8ae880c42e912ee6c0391
   ],
   providers: [],
   bootstrap: [AppComponent],
