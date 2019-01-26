@@ -5,7 +5,13 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatDialogModule } from '@angular/material';
+=======
+import { MatToolbarModule, MatIconModule, 
+         MatMenuModule, MatButtonModule,
+         MatDialogModule } from '@angular/material';
+>>>>>>> 5faee3daddc0c2da06f8ae880c42e912ee6c0391
 
 // FxFlex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -14,6 +20,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { PopupComponent } from './popup/popup.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MessageDialogComponent } from './components/dialogs/message-dialog.component';
+
+// Pipes
+import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 
 // 3rd party modules
 // import { MeshViewerModule } from 'ng-mesh-viewer';                    // NPM version
@@ -23,23 +33,29 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
   declarations: [
     AppComponent,
     PopupComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    MessageDialogComponent
   ],
   imports: [
     BrowserModule,
     MeshViewerModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+<<<<<<< HEAD
     OverlayModule,
     MatDialogModule
+=======
+    MarkdownToHtmlModule
+>>>>>>> 5faee3daddc0c2da06f8ae880c42e912ee6c0391
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent]
+  entryComponents: [MessageDialogComponent, PopupComponent]
 })
 export class AppModule { }

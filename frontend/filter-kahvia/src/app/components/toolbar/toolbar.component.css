@@ -4,9 +4,9 @@
     font-family: roboto thin;
 }
 .logo{
-    width: 120px;
+    width: 55px;
 }
-.logo-group:hover{
+/* .logo-group:hover{
     cursor: pointer;
     opacity: 0.9;
-}
+} */
