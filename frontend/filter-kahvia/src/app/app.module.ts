@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 
 // 3rd party modules
 // import { MeshViewerModule } from 'ng-mesh-viewer';                    // NPM version
-import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local version
+import { MeshViewerModule } from './modules/ng-mesh-viewer.module';
+import { PopupComponent } from './popup/popup.component';   // Local version
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

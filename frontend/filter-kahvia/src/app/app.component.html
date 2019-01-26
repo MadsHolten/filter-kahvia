@@ -3,7 +3,10 @@
 </ul> -->
 
 <mat-toolbar>My App</mat-toolbar>
+<app-popup></app-popup>
 <div>
-  <ng-mesh-viewer [data]="data" (clickedRoom)="clickedRoom($event)">
+  <ng-mesh-viewer 
+    [data]="data"
+    (clickedRoom)="clickedRoom($event)">
   </ng-mesh-viewer>
 </div>
