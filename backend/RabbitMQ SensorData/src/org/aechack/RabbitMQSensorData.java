@@ -90,12 +90,12 @@ public class RabbitMQSensorData {
 
 	public static void main(String[] args) {
 		List<RabbitMQSensorData> sensors = new ArrayList<>();
-		sensors.add(new RabbitMQSensorData(true,"temperature1", 20f));
-		sensors.add(new RabbitMQSensorData(true,"temperature2", 20f));
-		sensors.add(new RabbitMQSensorData(true,"temperature3", 20f));
-		sensors.add(new RabbitMQSensorData(false,"co2_1", 500f));
-		sensors.add(new RabbitMQSensorData(false,"co2_2", 500f));
-		sensors.add(new RabbitMQSensorData(false,"co2_3", 500f));
+		sensors.add(new RabbitMQSensorData(true,"/temperature1", 20f));
+		sensors.add(new RabbitMQSensorData(true,"/temperature2", 20f));
+		sensors.add(new RabbitMQSensorData(true,"/temperature3", 20f));
+		sensors.add(new RabbitMQSensorData(false,"/co2_1", 500f));
+		sensors.add(new RabbitMQSensorData(false,"/co2_2", 500f));
+		sensors.add(new RabbitMQSensorData(false,"/co2_3", 500f));
 
 		while (true) {
 			sensors.forEach(x -> x.update());
