@@ -1,33 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
+import {MatSort, MatTableDataSource} from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
-export interface HeatingDemang {
-  position: number;
+
+export interface Space {
   name: string;
+  position: number;
   demand: number;
 }
 
-const ELEMENT_DATA: any[] = [
-  { position: 1, name: 'Room 1', demand: 20 },
-  { position: 2, name: 'Room 2', demand: 25 },
-  { position: 3, name: 'Room 3', demand: 30 },
-];
-
+/**
+ * @title Table with editing
+ */
 @Component({
-  selector: 'app-heating-table',
-  templateUrl: './heating-table.component.html',
-  styleUrls: ['./heating-table.component.css']
+  selector: 'heating-table',
+  styleUrls: ['heating-table.component.css'],
+  templateUrl: 'heating-table.component.html',
 })
 export class HeatingTableComponent implements OnInit {
+  displayedColumns = ['position', 'name', 'demand'];
 
-  displayedColumns: string[] = ['position', 'name', 'demand'];
-  dataSource = ELEMENT_DATA;
+  @Input() dataSet: Space[];
 
-  constructor(
-  ) { }
+  dataSource;
+
+  @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
+    console.log('Data source: ' + this.dataSet);
+    this.dataSource = new MatTableDataSource(this.dataSet);
+    this.dataSource.sort = this.sort;
+  }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
 }

@@ -22,8 +22,8 @@ export class ToolbarComponent implements OnInit {
 
   showHeatingDemands(){
     let dialogRef = this.dialog.open(PopupComponent, {
-      height: '300px',
-      width: '500px',
+      height: '500px',
+      width: '900px',
     });
   }
 

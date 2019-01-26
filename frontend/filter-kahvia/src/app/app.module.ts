@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { FormsModule } from '@angular/forms';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 5d90c82865763ae6199e36e664ea88bd70e5d3f4
+
+
 import { MatToolbarModule, MatIconModule, 
          MatMenuModule, MatButtonModule,
-         MatDialogModule } from '@angular/material';
+         MatDialogModule, MatTableModule,
+         MatSortModule, MatInputModule } from '@angular/material';
 
 // FxFlex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -52,8 +53,13 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
     MatMenuModule,
     OverlayModule,
     MatDialogModule,
-    MarkdownToHtmlModule
+    MarkdownToHtmlModule,
+    MatTableModule,
+    MatSortModule,
+    FormsModule,
+    MatInputModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [MessageDialogComponent, PopupComponent]
