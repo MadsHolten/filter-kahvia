@@ -24,6 +24,7 @@ import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 // 3rd party modules
 // import { MeshViewerModule } from 'ng-mesh-viewer';                    // NPM version
 import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local version
+import { PlanModule } from 'ng-plan';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MeshViewerModule } from './modules/ng-mesh-viewer.module';   // Local v
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    PlanModule,
     MatMenuModule,
     MarkdownToHtmlModule
   ],

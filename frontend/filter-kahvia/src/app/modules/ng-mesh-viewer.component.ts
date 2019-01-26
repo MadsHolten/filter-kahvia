@@ -46,6 +46,10 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
   public selected;                // Stores the selected object
   public previousMaterial;        // Stores the color of the object which was previously selected/hovered
   public previousHovered;         // Stores the object which was previously hovered
+
+  // SCALEOFFSET
+  public scale: number;
+  public offset: number[];
   
   public canvasClass: string = 'default';
 
@@ -75,9 +79,11 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
       // Perform geometry preprocessing
       // Scales and offsets geometry to fit ([0,0,0], [1,1,1]) scene
       
-      var processed = this._s.processOBJ(this.data).then(res => {
+      this._s.processOBJ(this.data).then(res => {
         this.zones = res.zones;
         this.elements = res.elements;
+        this.scale = res.geometryPreprocessing.scaleFactor;
+        this.offset = res.geometryPreprocessing.offset;
         // console.log(this.spaces[0].geometry);
         this.appendMeshes(this.zones, "zone");
         this.appendMeshes(this.elements, "element");
@@ -295,8 +301,16 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
       // Set new material
       obj.material = this.highlightMaterial;
 
+      // Get centroid
+      var bb = new THREE.Box3().setFromObject(obj);
+      var ct = new THREE.Vector3();
+      bb.getCenter(ct);
+
+      // Convert centroid to project coordinate system
+      var ctProj = this._s.convertProjectCoordinate(ct, this.scale, this.offset);
+
       // Emit output
-      this.clickedRoom.emit({uri: obj.name});
+      this.clickedRoom.emit({uri: obj.name, centroid: ct});
     }
     this.render();
     return;
