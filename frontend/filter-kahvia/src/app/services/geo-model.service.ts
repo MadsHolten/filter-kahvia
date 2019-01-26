@@ -39,6 +39,7 @@ export class GeoModelService extends TriplestoreService {
                         name: item.name.value, 
                         uri: item.uri.value,
                         geometry: item.geometry.value,
+                        opacity: 0.3,
                         type: 'Zone'
                     }
                 });

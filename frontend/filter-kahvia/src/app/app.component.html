@@ -2,11 +2,10 @@
   <li *ngFor="let item of data">{{item.s.value}}</li>
 </ul> -->
 
-<mat-toolbar>My App</mat-toolbar>
-<app-popup></app-popup>
-<div>
-  <ng-mesh-viewer 
-    [data]="data"
-    (clickedRoom)="clickedRoom($event)">
-  </ng-mesh-viewer>
-</div>
+<app-toolbar></app-toolbar>
+
+<ng-mesh-viewer 
+  [data]="data"
+  class="canvas"
+  (clickedRoom)="clickedRoom($event)">
+</ng-mesh-viewer>
