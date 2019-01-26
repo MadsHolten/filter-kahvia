@@ -5,8 +5,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5d90c82865763ae6199e36e664ea88bd70e5d3f4
 import { MatToolbarModule, MatIconModule, 
          MatMenuModule, MatButtonModule,
          MatDialogModule } from '@angular/material';
