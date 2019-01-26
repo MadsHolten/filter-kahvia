@@ -5,13 +5,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 // Angular material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
-import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatDialogModule } from '@angular/material';
-=======
 import { MatToolbarModule, MatIconModule, 
          MatMenuModule, MatButtonModule,
          MatDialogModule } from '@angular/material';
->>>>>>> 5faee3daddc0c2da06f8ae880c42e912ee6c0391
 
 // FxFlex
 import { FlexLayoutModule } from '@angular/flex-layout';
