@@ -32,20 +32,22 @@ export class HeatingTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
-    this._gms.getAllRooms().subscribe(res => {
+    this._gms.getAllRoomsWithDemand().subscribe(res => {
       this.rooms = res;
-      //console.log('Rooms: ' + this.rooms);
+      console.log('Rooms: ' + this.rooms);
 
       let spaces: Space[] = [];
 
       for (let i = 0; i < this.rooms.length; i++) {
         let name = this.rooms[i].name.value;
+        let hd = this.rooms[i].hd.value;
+
 
         let random = Math.floor(Math.random() * 20);
         let space: Space = {
           position: i,
           name: name,
-          demand: 20 + random
+          demand: parseFloat(hd)
         };
 
         spaces.push(space);

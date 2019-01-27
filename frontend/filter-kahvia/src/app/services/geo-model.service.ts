@@ -136,6 +136,29 @@ export class GeoModelService extends TriplestoreService {
         return this.getQuery(q);
     }
 
+    public getAllRoomsWithDemand() {
+        var q =`
+        PREFIX bot: <https://w3id.org/bot#>
+        PREFIX opm: <https://w3id.org/opm#>
+        PREFIX schema: <http://schema.org/>
+        PREFIX props: <https://w3id.org/props#>
+        SELECT ?uri ?name ?area ?hd WHERE {
+              GRAPH ?g {
+              ?uri a bot:Space ;
+                  props:identityDataName/opm:hasPropertyState [
+                  a opm:CurrentPropertyState ;
+                  schema:value ?name
+              ].
+        ?uri a bot:Space ;
+            <https://w3id.org/props#dimensionsArea> ?propURI .
+        ?propURI opm:hasPropertyState  [ a opm:CurrentPropertyState ; <http://schema.org/value> ?area ]
+        BIND( (20 * ?area) AS ?hd )
+        }}
+        `;
+
+        return this.getQuery(q);
+    }
+
     public getAllRoomsWithHeatDemand() {
         var q = `
         PREFIX bot: <https://w3id.org/bot#>
