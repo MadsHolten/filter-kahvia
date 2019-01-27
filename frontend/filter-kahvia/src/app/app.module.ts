@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, 
          MatMenuModule, MatButtonModule,
          MatDialogModule, MatTableModule,
-         MatSortModule, MatInputModule,
+         MatSortModule, MatInputModule, MatSlideToggleModule,
          MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
 
 // FxFlex
@@ -55,6 +55,7 @@ import { PlanModule } from './modules/ng-plan/plan.module';   // Local version
     MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatSlideToggleModule,
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
