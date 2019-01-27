@@ -43,7 +43,8 @@ export class GeoModelService extends TriplestoreService {
                             uri: item.uri.value,
                             geometry: item.geometry.value,
                             opacity: 0.3,
-                            type: 'Zone'
+                            type: 'Zone',
+                            color: '#ccc'
                         }
                     });
                     return {data: d, query: q};
@@ -93,20 +94,21 @@ export class GeoModelService extends TriplestoreService {
         PREFIX inst:    <https://w3id.org/ibp/bot4osh/>
         SELECT DISTINCT ?uri ?name ?geometry2d
         WHERE {
-            ?uri a bot:Space .
-            ?uri props:identityDataName/opm:hasPropertyState ?ns ;
-                props:hasSimple2DBoundary/opm:hasPropertyState ?gs .
-            ?ns a opm:CurrentPropertyState ;
-                schema:value ?name .
-            ?gs a opm:CurrentPropertyState ;
-                schema:value ?geometry2d .
-            FILTER(str(?geometry2d) != "POLYGON ()")
+            GRAPH ?g{
+                ?uri a bot:Space .
+                ?uri props:identityDataName/opm:hasPropertyState ?ns ;
+                    props:hasSimple2DBoundary/opm:hasPropertyState ?gs .
+                ?ns a opm:CurrentPropertyState ;
+                    schema:value ?name .
+                ?gs a opm:CurrentPropertyState ;
+                    schema:value ?geometry2d .
+                FILTER(str(?geometry2d) != "POLYGON ()")
+            }
         }`;
 
         return this.getQuery(q)
                 .pipe(
                     map(res => {
-                        console.log(res);
                         var data = this._resToGeoJSON(res);
                         return {data: data, query: q};
                     })

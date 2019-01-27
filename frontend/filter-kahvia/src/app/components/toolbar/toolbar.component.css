@@ -12,11 +12,11 @@
 } */
 
 /* Structure */
-.example-container {
+/* .example-container {
     display: flex;
     flex-direction: column;
     min-width: 300px;
-  }
+  } */
   
 .example-header {
     min-height: 64px;
@@ -36,4 +36,3 @@
 input {
     border: 0;
 }
-

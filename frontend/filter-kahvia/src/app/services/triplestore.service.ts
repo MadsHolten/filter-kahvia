@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import * as _ from 'lodash';
 
 export interface ProjectSettings {
   endpoint: string;
@@ -12,7 +13,9 @@ export interface ProjectSettings {
 @Injectable()
 export class TriplestoreService {
 
-    private endpoint: string = "http://10.2.61.126:3030/1/query";
+    // private endpoint: string = "http://10.2.61.126:3030/1/query";
+    // private endpoint: string = "http://10.2.61.134:3030/1/query";
+    private endpoint: string = "http://localhost:3030/1/query";
 
     constructor(
         public http: HttpClient
@@ -51,6 +54,24 @@ export class TriplestoreService {
         );
     }
 
+  }
+
+  public getAllPredicates(graphURI?){
+      var q = `
+        SELECT DISTINCT ?p
+        WHERE {`
+      if(graphURI) q+= `GRAPH ?g {`;
+      q+= `?s ?p ?o}`;
+      if(graphURI) q+= `}`;
+
+      var pfx = this.http.get('./assets/prefixes.json').toPromise();
+      
+      return this.getQuery(q)
+            .pipe(
+                map(res => res.map(x => x.p.value))
+            );
+
+      
   }
 
 }

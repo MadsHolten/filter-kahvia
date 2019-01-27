@@ -2,24 +2,18 @@
   <li *ngFor="let item of data">{{item.s.value}}</li>
 </ul> -->
 
-<app-toolbar></app-toolbar>
+<app-toolbar class="toolbar"></app-toolbar>
 
 <div class="button-row">
 
-  <button mat-stroked-button (click)="viewMode = '2d'">2D</button>
-  <button mat-stroked-button (click)="viewMode = '3d'">3D</button>
+  <button *ngFor="let btn of buttons" mat-stroked-button (click)="clickedButton(btn)">{{btn}}</button>
   
 </div>
 
 <ng-mesh-viewer 
-  [hidden]="viewMode != '3d'"
   [data]="data3d"
+  [highlightOnClick]="true"
+  [colors]="colors"
   class="canvas"
   (clickedRoom)="clickedRoom($event)">
 </ng-mesh-viewer>
-
-<ng-plan 
-  [hidden]="viewMode != '2d'"
-  (clickedRoom)="clickedRoom($event)"
-  [data]="data2d">
-</ng-plan>

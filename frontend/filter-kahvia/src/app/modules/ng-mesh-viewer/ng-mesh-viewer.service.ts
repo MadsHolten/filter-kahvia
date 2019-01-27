@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as THREE from 'three';
 import {Vector3} from 'three';
+import * as _ from 'lodash';
 
 export interface OBJGeometry {
     zones?: string[],
@@ -87,14 +88,13 @@ export class NgMeshViewerService {
 
   public convertProjectCoordinate(coordinate: Vector3, scale, offset){
 
-    Object.keys(coordinate).map((key, i)=> {
-        coordinate[key] = coordinate[key]+offset[i]/scale;
-    });
-    console.log(coordinate);
-    console.log(scale);
-    console.log(offset);
+    var c = _.clone(coordinate);
 
-    return coordinate;
+    Object.keys(c).map((key, i)=> {
+        c[key] = c[key]+offset[i]/scale;
+    });
+
+    return c;
   }
 
   private calculateScaleFactor = (boundingBox, maxDim): Promise<number> => {

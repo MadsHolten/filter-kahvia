@@ -25,6 +25,7 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
   @Input() public data;           //JSON + obj
   @Input() public showCentroids: boolean = true;
   @Input() public showBoundingBox: boolean = true;
+  @Input() public highlightOnClick: boolean = false;
 
   // THREE JS
   public scene: THREE.Scene;
@@ -299,7 +300,9 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
       this.previousMaterial = obj.material;
 
       // Set new material
-      obj.material = this.highlightMaterial;
+      if(this.highlightOnClick){
+        obj.material = this.highlightMaterial;
+      }
 
       // Get centroid
       var bb = new THREE.Box3().setFromObject(obj);
@@ -310,7 +313,7 @@ export class NgMeshViewerComponent implements OnInit, OnChanges {
       var ctProj = this._s.convertProjectCoordinate(ct, this.scale, this.offset);
 
       // Emit output
-      this.clickedRoom.emit({uri: obj.name, centroid: ct});
+      this.clickedRoom.emit({uri: obj.name, centroid: ct, centroidAbs: ctProj});
     }
     this.render();
     return;
