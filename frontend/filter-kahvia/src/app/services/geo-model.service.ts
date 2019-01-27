@@ -118,6 +118,22 @@ export class GeoModelService extends TriplestoreService {
         return this.getQuery(q);
     }
 
+    public getAllRooms(){
+        var q = `
+            PREFIX bot:     <https://w3id.org/bot#>
+            PREFIX opm:     <https://w3id.org/opm#>
+            PREFIX schema:  <http://schema.org/>
+            PREFIX props:   <https://w3id.org/props#>
+            SELECT ?uri ?name WHERE {
+                GRAPH ?g {
+                ?uri a bot:Space ;
+                    props:identityDataName/opm:hasPropertyState [
+                    a opm:CurrentPropertyState ;
+                    schema:value ?name
+                ]}}`;
+        return this.getQuery(q);
+    }
+
     private _resToGeoJSON(res){
         var geoJSON = {type: "FeatureCollection", features: []};
 
