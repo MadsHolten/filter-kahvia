@@ -1,0 +1,27 @@
+<h4>Query geometry</h4>
+<div fxLayout="row" fxLayoutAlign="space-around center" class="row">
+    <mat-form-field fxFlex="25%">
+        <input matInput placeholder="Subject" value="?s">
+    </mat-form-field>
+
+    <mat-icon>remove</mat-icon>
+
+    <mat-form-field fxFlex="25%">
+      <input matInput placeholder="Predicate" aria-label="Predicate" [matAutocomplete]="auto" [formControl]="predicateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of predicates" [value]="option | prefixstring">
+            {{ option | prefixstring }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-icon>arrow_right_alt</mat-icon>
+
+    <mat-form-field fxFlex="25%">
+        <input matInput placeholder="Object" value="?o">
+    </mat-form-field>
+</div>
+
+<div fxLayout="row">
+    <button mat-stroked-button (click)="doQuery()">Query</button>
+</div>

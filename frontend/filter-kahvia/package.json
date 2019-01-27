@@ -16,7 +16,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-git": "ng build --prod --base-href https://madsholten.github.io/filter-kahvia/ && npx ngh"
+    "build-git": "ng build --prod --base-href https://madsholten.github.io/filter-kahvia/ && npx ngh",
+    "build-zip": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "markdown-to-html-pipe": "^1.2.5",
     "ng-mesh-viewer": "0.0.7",
     "ng-plan": "0.0.13",
+    "roboto-fontface": "^0.10.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "wellknown": "^0.5.0",

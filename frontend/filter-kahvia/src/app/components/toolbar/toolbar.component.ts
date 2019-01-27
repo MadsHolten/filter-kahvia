@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PopupComponent } from '../../popup/popup.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { MessageDialogComponent } from '../dialogs/message-dialog.component';
 
 @Component({
