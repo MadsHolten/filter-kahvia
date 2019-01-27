@@ -136,6 +136,42 @@ export class GeoModelService extends TriplestoreService {
         return this.getQuery(q);
     }
 
+    public getAllRoomsWithHeatDemand() {
+        var q = `
+        PREFIX bot: <https://w3id.org/bot#>
+        PREFIX props: <https://w3id.org/product/props#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX opm: <https://w3id.org/opm#>
+        PREFIX prov: <http://www.w3.org/ns/prov#>
+        PREFIX arch: <http://architect.com/projects/>
+        PREFIX ice: <http://ice-engineer.com/projects/>
+
+        CONSTRUCT{
+            ?space props:heatingDemand ?newPropertyURI .
+            ?newPropertyURI opm:hasState ?newStateURI .
+            ?newStateURI a opm:CurrentState ;
+                opm:value ?hd ;
+                prov:generatedAtTime ?now .
+        }
+        WHERE {
+        BIND(props:revitarea AS ?prop)
+        BIND(arch:17001 AS ?gArch)
+        BIND(ice:1001 AS ?gICE)
+        ?space a bot:Space ;
+                    <https://w3id.org/props#dimensionsArea> ?propURI .
+                ?propURI opm:hasPropertyState  [ a opm:CurrentPropertyState ; <http://schema.org/value> ?area ]
+        BIND( (20 * ?area) AS ?hd )
+        BIND(REPLACE(STR(UUID()), "urn:uuid:", "") AS ?guid1)
+        BIND(REPLACE(STR(UUID()), "urn:uuid:", "") AS ?guid2)
+        BIND( URI(CONCAT(STR(?gICE), "#", "property_", ?guid1)) AS ?newPropertyURI )
+        BIND( URI(CONCAT(STR(?gICE), "#", "state_", ?guid1)) AS ?newStateURI )
+        BIND( NOW() AS ?now )
+        }
+        `;
+
+        return this.getQuery(q, null, 'construct');
+    }
+
     private _resToGeoJSON(res){
         var geoJSON = {type: "FeatureCollection", features: []};
 

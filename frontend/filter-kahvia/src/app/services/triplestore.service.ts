@@ -42,6 +42,7 @@ export class TriplestoreService {
     var url = `${this.endpoint}`;
 
     if(queryType == 'construct'){
+      console.log('Using construct');
       return this.http.get(url, options);
     }
     else{

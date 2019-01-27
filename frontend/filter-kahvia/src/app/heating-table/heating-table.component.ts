@@ -34,10 +34,25 @@ export class HeatingTableComponent implements OnInit {
   ngOnInit() {
     this._gms.getAllRooms().subscribe(res => {
       this.rooms = res;
-      console.log('Rooms: ' + this.rooms);
+      //console.log('Rooms: ' + this.rooms);
 
-      console.log('Data source: ' + this.dataSet);
-      this.dataSource = new MatTableDataSource(this.dataSet);
+      let spaces: Space[] = [];
+
+      for (let i = 0; i < this.rooms.length; i++) {
+        let name = this.rooms[i].name.value;
+
+        let random = Math.floor(Math.random() * 20);
+        let space: Space = {
+          position: i,
+          name: name,
+          demand: 20 + random
+        };
+
+        spaces.push(space);
+      }
+
+      //console.log('Data source: ' + this.dataSet);
+      this.dataSource = new MatTableDataSource(spaces);
       this.dataSource.sort = this.sort;  
     }, err => console.log(err));
   }
