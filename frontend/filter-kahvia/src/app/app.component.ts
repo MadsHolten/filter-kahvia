@@ -3,12 +3,13 @@ import { MatDialog } from '@angular/material';
 import { QueryDialogComponent } from './components/dialogs/query-dialog.component';
 
 import { GeoModelService } from './services/geo-model.service';
+import { PipesService } from './services/pipes.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GeoModelService]
+  providers: [GeoModelService, PipesService]
 })
 export class AppComponent implements OnInit {
 
@@ -16,19 +17,24 @@ export class AppComponent implements OnInit {
   data2d;
   colors;
   viewMode: string = '3d';
-  buttons = ["Show pipes", "Query geometry"]
+  buttons = ["Query geometry"]
 
   // View
   showPipes: boolean = false;
 
   constructor(
     private _gms: GeoModelService,
+    private _ps: PipesService,
     public dialog: MatDialog
   ){}
 
   ngOnInit(){
     this.get3DNoPipes();
     // this.get3DPipes();
+
+    this._ps.getPipeInterfaces().subscribe(res => {
+      console.log(res);
+    }, err => console.log(err));
   }
 
   public get3DNoPipes(){
@@ -46,31 +52,19 @@ export class AppComponent implements OnInit {
     }, err => console.log(err));
   }
 
+  public togglePipes(){
+    if(!this.showPipes){
+      this.get3DPipes();
+    }else{
+      this.get3DNoPipes();
+    }
+    this.showPipes = !this.showPipes;
+  }
+
   public clickedButton(ev){
 
-    // On show pipes
-    if(ev == this.buttons[0]){
-      if(!this.showPipes){
-        this.get3DPipes();
-        // this._gms.getPipes().subscribe(res => {
-        //   var oldData = this.data3d.slice();
-        //   const newData = [...oldData, ...res.data];
-        //   console.log(oldData);
-        //   console.log(res.data);
-        //   console.log(newData);
-        //   this.data3d = newData.slice();
-        //   // var oldData = this.data3d.slice(0);
-        //   // console.log(oldData.concat(res.data));
-        //   // this.data3d = oldData.concat(res.data);
-        // }, err => console.log(err));
-      }else{
-        this.get3DNoPipes();
-      }
-      this.showPipes = !this.showPipes;
-    }
-
     // On query Geometry
-    if(ev == this.buttons[1]){
+    if(ev == this.buttons[0]){
       let dialogRef = this.dialog.open(QueryDialogComponent, {
         height: '400px',
         width: '700px'
@@ -88,6 +82,15 @@ export class AppComponent implements OnInit {
   public clickedRoom(ev){
     console.log(ev);
     var uri = ev.uri;
+
+    this._gms.getSpaceModel().subscribe(res => {
+      var data = res.data;
+      this._ps.getPipesIntersectingZone(uri).subscribe(res => {
+        this.data3d = data.concat(res.data);
+      }, err => console.log(err));
+    }, err => console.log(err));
+
+    
 
     // this.colors = [{uri: ev.uri, value: 20, color: "#111", unit: "degC"}]
     

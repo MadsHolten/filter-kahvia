@@ -4,9 +4,11 @@
 
 <app-toolbar class="toolbar"></app-toolbar>
 
-<div class="button-row">
+<div class="button-row" fxLayout="column" fxLayoutGap="25px">
 
   <button *ngFor="let btn of buttons" mat-stroked-button (click)="clickedButton(btn)">{{btn}}</button>
+
+  <mat-slide-toggle [value]="showPipes" (change)="togglePipes()">Show pipes</mat-slide-toggle>
   
 </div>
 
