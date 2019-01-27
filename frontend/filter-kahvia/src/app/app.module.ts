@@ -31,11 +31,9 @@ import { HeatingTableComponent } from './heating-table/heating-table.component';
 import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 import { PrefixPipe } from './pipes/prefix.pipe';
 
-// 3rd party modules
-// import { MeshViewerModule } from 'ng-mesh-viewer';                    // NPM version
-import { MeshViewerModule } from './modules/ng-mesh-viewer/ng-mesh-viewer.module';   // Local version
-// import { PlanModule } from 'ng-plan';
-import { PlanModule } from './modules/ng-plan/plan.module';   // Local version
+// Modules
+import { MeshViewerModule } from './modules/ng-mesh-viewer/ng-mesh-viewer.module';
+import { PlanModule } from './modules/ng-plan/plan.module';
 
 @NgModule({
   declarations: [
