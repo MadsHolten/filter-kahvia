@@ -26,7 +26,7 @@ export class PopupComponent implements OnInit {
 
   dataSpaces = ELEMENT_DATA;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog){}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupComponent, {
