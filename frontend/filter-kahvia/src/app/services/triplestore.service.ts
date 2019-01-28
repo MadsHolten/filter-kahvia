@@ -14,8 +14,8 @@ export interface ProjectSettings {
 export class TriplestoreService {
 
     // private endpoint: string = "http://10.2.61.126:3030/1/query";
-    private endpoint: string = "http://10.2.45.26:3030/1/query";
-    // private endpoint: string = "http://localhost:3030/1/query";
+    // private endpoint: string = "http://10.2.45.26:3030/1/query";
+    private endpoint: string = "http://localhost:3030/1/query";
 
     constructor(
         public http: HttpClient
