@@ -6,7 +6,7 @@ This is a demonstration of the application of the [Linked Building Data (LBD) to
 -
 
 ## Team participants
-
+| Name                  | Affiliation                                                                                     |
 | --------------------- | -----------------------------------------------------------------------------------------------:|
 | Jyrki Oraskari        | [Aalto University](https://www.aalto.fi/)                                                       |
 | Morten Graven Bilde   | [Juul | Frost](http://www.juulfrost.dk/)                                                        |
