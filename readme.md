@@ -7,11 +7,11 @@ This is a demonstration of the application of the [Linked Building Data (LBD) to
 
 ## Team participants
 | Name                  | Affiliation                                                                                     |
-| --------------------- | -----------------------------------------------------------------------------------------------:|
+| :-------------------- | -----------------------------------------------------------------------------------------------:|
 | Jyrki Oraskari        | [Aalto University](https://www.aalto.fi/)                                                       |
-| Morten Graven Bilde   | [Juul | Frost](http://www.juulfrost.dk/)                                                        |
-| Joni Turunen          | [Granlund]https://www.granlundgroup.com/                                                        |
-| Davor Stjelja         | [Granlund]https://www.granlundgroup.com/                                                        |
+| Morten Graven Bilde   | [Juul Frost](http://www.juulfrost.dk/)                                                          |
+| Joni Turunen          | [Granlund](https://www.granlundgroup.com/)                                                      |
+| Davor Stjelja         | [Granlund](https://www.granlundgroup.com/)                                                      |
 | Rasmus Christiansen   | [Technical University of Denmark](https://www.dtu.dk/english/)                                  |
 | Mads Holten Rasmussen | [Niras](https://www.niras.com/) / [Technical University of Denmark](https://www.dtu.dk/english/)|
 
