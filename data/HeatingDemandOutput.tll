@@ -1,0 +1,304 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bot:   <https://w3id.org/bot#> .
+@prefix ice:   <http://ice-engineer.com/projects/> .
+@prefix arch:  <http://architect.com/projects/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix opm:   <https://w3id.org/opm#> .
+@prefix props: <https://w3id.org/product/props#> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be95d>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_a2d99676-0692-4cdc-bec9-fcfe9506d5db> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be949>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_fe96c4b6-3262-4ae4-b80b-482db9f42b32> .
+
+<http://ice-engineer.com/projects/1001#property_21079aaa-ab42-4ad9-90f7-cfaa8ac127c3>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_21079aaa-ab42-4ad9-90f7-cfaa8ac127c3> .
+
+<http://ice-engineer.com/projects/1001#property_8f57e42c-bf35-4fc0-b73f-4d1f94275a14>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_8f57e42c-bf35-4fc0-b73f-4d1f94275a14> .
+
+<http://ice-engineer.com/projects/1001#state_8f8d5db4-2c33-4ae0-a2e2-c1fb8605af1b>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             156.20 .
+
+<http://ice-engineer.com/projects/1001#state_89930f65-8943-4514-ab19-3e7662c58e7d>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             91.20 .
+
+<http://ice-engineer.com/projects/1001#state_3b71a278-fed8-4a41-a409-e7d56388118d>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             228.80 .
+
+<http://ice-engineer.com/projects/1001#property_524dac52-e668-4dd0-98e2-07311865a64e>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_524dac52-e668-4dd0-98e2-07311865a64e> .
+
+<http://ice-engineer.com/projects/1001#state_eb2a1113-928a-42bb-b4f2-cc8302b6bdd9>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             84.40 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be971>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_0cab4a68-f1c9-4024-8142-505458a47997> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be943>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_cf8f7df5-d194-4987-ad33-c9ab3ad203d5> .
+
+<http://ice-engineer.com/projects/1001#property_38803edd-7f8c-4eaf-ad0a-511d21cee09f>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_38803edd-7f8c-4eaf-ad0a-511d21cee09f> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be94f>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_8f57e42c-bf35-4fc0-b73f-4d1f94275a14> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be969>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_13772fb8-9e84-47a3-a00a-ed765391b5c8> .
+
+<http://ice-engineer.com/projects/1001#state_a854c607-c8a3-4542-852f-9117d40a1b35>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             111.40 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be963>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_55ec6798-bd30-45b1-85e5-16150ac4967b> .
+
+<http://ice-engineer.com/projects/1001#state_fe96c4b6-3262-4ae4-b80b-482db9f42b32>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             156.20 .
+
+<http://ice-engineer.com/projects/1001#property_f4df01a6-72f4-4c47-918b-5958e3bbced0>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_f4df01a6-72f4-4c47-918b-5958e3bbced0> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be96f>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_21079aaa-ab42-4ad9-90f7-cfaa8ac127c3> .
+
+<http://ice-engineer.com/projects/1001#state_12a947d0-53af-4d0c-bcf5-92862204fd54>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             313.00 .
+
+<http://ice-engineer.com/projects/1001#property_55ec6798-bd30-45b1-85e5-16150ac4967b>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_55ec6798-bd30-45b1-85e5-16150ac4967b> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be955>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_092fd2a0-e9f2-4f5d-956b-252fbc923b14> .
+
+<http://ice-engineer.com/projects/1001#property_13772fb8-9e84-47a3-a00a-ed765391b5c8>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_13772fb8-9e84-47a3-a00a-ed765391b5c8> .
+
+<http://ice-engineer.com/projects/1001#state_f4df01a6-72f4-4c47-918b-5958e3bbced0>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             529.00 .
+
+<http://ice-engineer.com/projects/1001#property_092fd2a0-e9f2-4f5d-956b-252fbc923b14>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_092fd2a0-e9f2-4f5d-956b-252fbc923b14> .
+
+<http://ice-engineer.com/projects/1001#state_fff9a60c-e855-492d-a666-358b768d2982>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             156.20 .
+
+<http://ice-engineer.com/projects/1001#state_d179669f-ed6e-4999-bbd6-a382bb2d8027>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             131.80 .
+
+<http://ice-engineer.com/projects/1001#state_1763cb3e-0caa-4f1c-8466-c452373299dc>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             156.20 .
+
+<http://ice-engineer.com/projects/1001#state_e3c219e4-ded6-4173-aa93-1b6ee289bee7>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             156.20 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be95b>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_3b71a278-fed8-4a41-a409-e7d56388118d> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be947>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_1763cb3e-0caa-4f1c-8466-c452373299dc> .
+
+<http://ice-engineer.com/projects/1001#state_21079aaa-ab42-4ad9-90f7-cfaa8ac127c3>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             30.80 .
+
+<http://ice-engineer.com/projects/1001#state_8f57e42c-bf35-4fc0-b73f-4d1f94275a14>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             1513.80 .
+
+<http://ice-engineer.com/projects/1001#state_524dac52-e668-4dd0-98e2-07311865a64e>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             152.80 .
+
+<http://ice-engineer.com/projects/1001#property_448321ba-7dff-4139-85ff-1c300c4e3b9a>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_448321ba-7dff-4139-85ff-1c300c4e3b9a> .
+
+<http://ice-engineer.com/projects/1001#property_9b38ca22-4f8a-41ad-ba4d-2b897401b4b3>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_9b38ca22-4f8a-41ad-ba4d-2b897401b4b3> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be941>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_e3c219e4-ded6-4173-aa93-1b6ee289bee7> .
+
+<http://ice-engineer.com/projects/1001#state_38803edd-7f8c-4eaf-ad0a-511d21cee09f>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             121.60 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be94d>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_d179669f-ed6e-4999-bbd6-a382bb2d8027> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be967>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_24ab6823-65e3-4799-af6d-1871719813c0> .
+
+<http://ice-engineer.com/projects/1001#property_cf8f7df5-d194-4987-ad33-c9ab3ad203d5>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_cf8f7df5-d194-4987-ad33-c9ab3ad203d5> .
+
+<http://ice-engineer.com/projects/1001#state_448321ba-7dff-4139-85ff-1c300c4e3b9a>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             121.60 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be961>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_0702c352-246d-4d20-969f-a9f2d6e397d2> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be96d>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_a854c607-c8a3-4542-852f-9117d40a1b35> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be93f>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_524dac52-e668-4dd0-98e2-07311865a64e> .
+
+<http://ice-engineer.com/projects/1001#property_24ab6823-65e3-4799-af6d-1871719813c0>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_24ab6823-65e3-4799-af6d-1871719813c0> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be959>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_12a947d0-53af-4d0c-bcf5-92862204fd54> .
+
+<http://ice-engineer.com/projects/1001#state_cf8f7df5-d194-4987-ad33-c9ab3ad203d5>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             156.20 .
+
+<http://ice-engineer.com/projects/1001#state_55ec6798-bd30-45b1-85e5-16150ac4967b>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             121.60 .
+
+<http://ice-engineer.com/projects/1001#property_a2d99676-0692-4cdc-bec9-fcfe9506d5db>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_a2d99676-0692-4cdc-bec9-fcfe9506d5db> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be953>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_bc5eb331-b363-4768-970b-478face181a0> .
+
+<http://ice-engineer.com/projects/1001#state_13772fb8-9e84-47a3-a00a-ed765391b5c8>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             83.00 .
+
+<http://ice-engineer.com/projects/1001#state_092fd2a0-e9f2-4f5d-956b-252fbc923b14>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             121.60 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be95f>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_448321ba-7dff-4139-85ff-1c300c4e3b9a> .
+
+<http://ice-engineer.com/projects/1001#property_89930f65-8943-4514-ab19-3e7662c58e7d>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_89930f65-8943-4514-ab19-3e7662c58e7d> .
+
+<http://ice-engineer.com/projects/1001#property_3b71a278-fed8-4a41-a409-e7d56388118d>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_3b71a278-fed8-4a41-a409-e7d56388118d> .
+
+<http://ice-engineer.com/projects/1001#property_0cab4a68-f1c9-4024-8142-505458a47997>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_0cab4a68-f1c9-4024-8142-505458a47997> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be973>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_89930f65-8943-4514-ab19-3e7662c58e7d> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be945>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_fff9a60c-e855-492d-a666-358b768d2982> .
+
+<http://ice-engineer.com/projects/1001#property_0702c352-246d-4d20-969f-a9f2d6e397d2>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_0702c352-246d-4d20-969f-a9f2d6e397d2> .
+
+<http://ice-engineer.com/projects/1001#property_a854c607-c8a3-4542-852f-9117d40a1b35>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_a854c607-c8a3-4542-852f-9117d40a1b35> .
+
+<http://ice-engineer.com/projects/1001#state_9b38ca22-4f8a-41ad-ba4d-2b897401b4b3>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             121.60 .
+
+<http://ice-engineer.com/projects/1001#property_fe96c4b6-3262-4ae4-b80b-482db9f42b32>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_fe96c4b6-3262-4ae4-b80b-482db9f42b32> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be94b>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_8f8d5db4-2c33-4ae0-a2e2-c1fb8605af1b> .
+
+<http://ice-engineer.com/projects/1001#state_0cab4a68-f1c9-4024-8142-505458a47997>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             67.20 .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be965>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_38803edd-7f8c-4eaf-ad0a-511d21cee09f> .
+
+<http://ice-engineer.com/projects/1001#property_bc5eb331-b363-4768-970b-478face181a0>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_bc5eb331-b363-4768-970b-478face181a0> .
+
+<http://ice-engineer.com/projects/1001#state_0702c352-246d-4d20-969f-a9f2d6e397d2>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             121.60 .
+
+<http://ice-engineer.com/projects/1001#property_12a947d0-53af-4d0c-bcf5-92862204fd54>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_12a947d0-53af-4d0c-bcf5-92862204fd54> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be96b>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_eb2a1113-928a-42bb-b4f2-cc8302b6bdd9> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be957>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_9b38ca22-4f8a-41ad-ba4d-2b897401b4b3> .
+
+<http://ice-engineer.com/projects/1001#property_fff9a60c-e855-492d-a666-358b768d2982>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_fff9a60c-e855-492d-a666-358b768d2982> .
+
+<http://ice-engineer.com/projects/1001#property_8f8d5db4-2c33-4ae0-a2e2-c1fb8605af1b>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_8f8d5db4-2c33-4ae0-a2e2-c1fb8605af1b> .
+
+<http://ice-engineer.com/projects/1001#state_bc5eb331-b363-4768-970b-478face181a0>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             119.00 .
+
+<http://ice-engineer.com/projects/1001#state_24ab6823-65e3-4799-af6d-1871719813c0>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             102.60 .
+
+<http://ice-engineer.com/projects/1001#property_d179669f-ed6e-4999-bbd6-a382bb2d8027>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_d179669f-ed6e-4999-bbd6-a382bb2d8027> .
+
+<http://ice-engineer.com/projects/1001#property_eb2a1113-928a-42bb-b4f2-cc8302b6bdd9>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_eb2a1113-928a-42bb-b4f2-cc8302b6bdd9> .
+
+<http://ice-engineer.com/projects/1001#state_a2d99676-0692-4cdc-bec9-fcfe9506d5db>
+        a                     opm:CurrentState ;
+        prov:generatedAtTime  "2019-01-27T10:45:32.832+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        opm:value             325.60 .
+
+<http://ice-engineer.com/projects/1001#property_1763cb3e-0caa-4f1c-8466-c452373299dc>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_1763cb3e-0caa-4f1c-8466-c452373299dc> .
+
+<http://web-bim/projects/2/arch/spaces/076a12c8-e727-419c-84a8-b1a1dd0c8aa0-002be951>
+        props:heatingDemand  <http://ice-engineer.com/projects/1001#property_f4df01a6-72f4-4c47-918b-5958e3bbced0> .
+
+<http://ice-engineer.com/projects/1001#property_e3c219e4-ded6-4173-aa93-1b6ee289bee7>
+        opm:hasState  <http://ice-engineer.com/projects/1001#state_e3c219e4-ded6-4173-aa93-1b6ee289bee7> .
