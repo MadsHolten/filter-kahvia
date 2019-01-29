@@ -1,0 +1,221 @@
+@prefix bot:      <https://w3id.org/bot#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix props:    <https://w3id.org/props#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:   <http://schema.org/> .
+@prefix ifc:      <http://www.buildingsmart-tech.org/ifcOWL/IFC4_ADD2#> .
+@prefix prod:     <https://w3id.org/product#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix vs:       <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix voaf:     <http://purl.org/vocommons/voaf#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+
+@prefix fso:    <https://w3id.org/fso#> .
+
+# METADATA
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+
+<https://w3id.org/fso#> rdf:type owl:Ontology , voaf:Vocabulary ;
+    dcterms:modified    "2019-01-27"^^xsd:date ;
+    dcterms:issued      "2019-01-27"^^xsd:date ;
+    owl:versionInfo     "0.0.1" ;
+    owl:versionIRI      <https://w3id.org/fso/0.0.1> ;
+    owl:priorVersion    <https://w3id.org/fso/0.0.1> ;
+    dcterms:title       "The Flow Systems Ontology (FSO)"@en ;
+    dcterms:description """The Flow Systems Ontology (FSO) defines concepts that are relevant for describing flow systems. It extends concepts of the Building Topology Ontology (BOT) and is being actively developed by Danish consulting engineering company Niras and Finnish Granlund."""@en ;
+    dcterms:creator [a foaf:Person ; foaf:name    "Mads Holten Rasmussen" ] .
+
+#########
+# CLASSES
+#########
+
+# Systems
+fso:FlowSystem
+    a owl:Class ;
+    rdfs:label "Flow System"@en , "Flowsystem"@da ;
+    rdfs:comment 
+        "A flow system is a system in which a fluid (eg. water or air) can flow. Flow systems are hierarchical, so a flow system can have sub flow systems."@en ,
+        "Et flowsystem er et system, hvori et fluid (fx. vand eller luft) kan strømme. Flowsystemer er hierakiske, så et flowsystem kan have under-flowsystemer."@da .
+
+fso:HeatingSystem
+    a owl:Class ;
+    rdfs:subClassOf fso:FlowSystem ;
+    rdfs:label "Heating System"@en , "Varmeanlæg"@da .
+
+fso:CoolingSystem
+    a owl:Class ;
+    rdfs:subClassOf fso:FlowSystem ;
+    rdfs:label "Cooling System"@en , "Køleanlæg"@da .
+
+fso:VentilationSystem
+    a owl:Class ;
+    rdfs:subClassOf fso:FlowSystem ;
+    rdfs:label "Ventilation System"@en , "Ventilationsanlæg"@da .
+
+fso:DomesticWaterSystem
+    a owl:Class ;
+    rdfs:subClassOf fso:FlowSystem ;
+    rdfs:label "Domestic Water System"@en , "Brugsvandssanlæg"@da .
+
+# Terminals
+fso:FlowTerminal
+    a owl:Class ;
+    rdfs:subClassOf ifc:IfcFlowTerminal ;
+    rdfs:label "Flow Terminal"@en, "Flowterminal"@da ;
+    rdfs:comment
+        "Flow-terminals are the leafs of the flow system tree. Examples are water taps, air terminals and radiators."@en ,
+        "Flowterminaler er bladene i flowsystemtræet. Eksempler er vandhaner, luftarmaturer og radiators."@da .
+
+fso:HeatEmitter
+    a owl:Class ;
+    rdfs:subClassOf fso:FlowTerminal ;
+    rdfs:label "Heat Emitter"@en , "Varmeafgiver"@da ;
+    rdfs:comment
+        "Heat emitters emit heat to the sorroundings through conduction, convection and/or radiation."@en ,
+        "Varmeafgivere afgiver varme til omgivelserne ved ledning, konvektion og/eller stråling."@da .
+
+# Distribution
+fso:DistributionElement
+    a owl:Class ;
+    rdfs:subClassOf ifc:IfcDistributionFlowElement ;
+    rdfs:label "Distribution Element"@en, "Distributionselement"@da ;
+    rdfs:comment
+        "Interface between a zone and an intersecting flow segment."@en ,
+        "Grænseflade mellem en zone og et krydsende strømingssegment."@da .
+
+fso:Segment
+    a owl:Class ;
+    rdfs:subClassOf fso:DistributionElement , ifc:IfcFlowSegment ;
+    rdfs:label "Segment"@en, "Strækning"@da ;
+    rdfs:comment
+        "Segments constitute unbroken elements for transportation of a fluid from A to B. Examples are pipes and ducts."@en ,
+        "Strækninger er ubrudte elementer til transport af et fluid fra A til B. Eksempler er rør og kanaler."@da .
+
+fso:Fitting
+    a owl:Class ;
+    rdfs:subClassOf fso:DistributionElement , ifc:IfcFlowFitting ;
+    rdfs:label "Fitting"@en, "Fitting"@da ;
+    rdfs:comment
+        "Fittings in a distribution system constritute elements that either change the direction of the flow in an angle or distributes the flow to more branches."@en ,
+        "Fittings i et distributionssystem udgøres af elementer der enten ændrer flowretningen i en vinkel eller fordeler flowet til flere afgreninger."@da .
+
+fso:Bend
+    a owl:Class ;
+    rdfs:subClassOf fso:Fitting ;
+    rdfs:label "Bend"@en, "Bøjning"@da ;
+    rdfs:comment
+        "A bend is a fitting that changes the flow direction in an angle. Typically 45 or 90 degrees."@en ,
+        "En bøjning er en fitting der ændrer flowretningen i en vinkel. Typisk 45 eller 90 grader."@da ;
+    owl:disjointWith fso:Tee , fso:Cross , fso:Manifold .
+
+fso:Tee
+    a owl:Class ;
+    rdfs:subClassOf fso:Fitting ;
+    rdfs:label "Tee"@en, "T-stykke"@da ;
+    rdfs:comment
+        "A tee is a fitting that distributes a flow branch to two new flow branches."@en ,
+        "Et T-stykke er en fitting der fordeler en flowgren til to nye flowafgreninger."@da ;
+    owl:disjointWith fso:Bend , fso:Cross , fso:Manifold .
+
+fso:Cross
+    a owl:Class ;
+    rdfs:subClassOf fso:Fitting ;
+    rdfs:label "Cross"@en, "Krydsstykke"@da ;
+    rdfs:comment
+        "A cross is a fitting that distributes a flow branch to three new flow branches."@en ,
+        "Et krydsstykke er en fitting der fordeler en flowgren til tre nye flowafgreninger."@da ;
+    owl:disjointWith fso:Bend , fso:Tee , fso:Manifold .
+
+fso:Manifold
+    a owl:Class ;
+    rdfs:subClassOf fso:Fitting ;
+    rdfs:label "Manifold"@en, "Manifold"@da ;
+    rdfs:comment
+        "A manifold is a fitting that distributes a flow branch to n new flow branches."@en ,
+        "En manifold er en fitting der fordeler en flowgren til n nye flowafgreninger."@da ;
+    owl:disjointWith fso:Bend , fso:Tee , fso:Cross .
+
+# Interfaces
+fso:ElementZoneInterface
+    a owl:Class ;
+    rdfs:subClassOf bot:Interface ;
+    rdfs:label "Element/Zone Interface"@en, "Element/Zone-Grænseflade"@da ;
+    rdfs:comment
+        "Interface between a zone and an intersecting distribution element."@en ,
+        "Grænseflade mellem en zone og et krydsende distributionselement."@da .
+
+
+###################
+# OBJECT PROPERTIES
+###################
+fso:servedBy
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf bot:containsElement ;
+    rdfs:label "served by"@en, "forsynet fra"@da ;
+    rdfs:comment
+        "Relationship between a flow terminal and its supply."@en ,
+        "Relation mellem en flowterminal og dens forsyning."@da ;
+    rdfs:range fso:FlowTerminal .
+# implicitly given that the domain is a bot:Zone and the range is a bot:Element
+
+fso:heatedBy
+    rdfs:subPropertyOf fso:servedBy ;
+    rdfs:label "heated by"@en, "opvarmet af"@da ;
+    rdfs:comment
+        "Heated by describes the relationship between a bot:Zone and the fso:FlowTerminal (bot:Element) which heats the zone."@en ,
+        "Opvarmet af beskriver relationen mellem en bot:Zone og den fso:FlowTerminal (bot:Element) der opvarmer zonen"@da .
+
+fso:touchesElement
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf bot:interfaceOf ;
+    rdfs:label "touches distribution element"@en, "rører distributionselement"@da ;
+    rdfs:comment
+        "Relationship between an element/zone interface and the distribution element it represents."@en ,
+        "Relation mellem en element/zone-grænseflade og distributionselementet dette repræsenterer."@da ;
+    rdfs:domain fso:ElementZoneInterface ;
+    rdfs:range fso:DistributionElement .
+
+fso:touchesZone
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf bot:interfaceOf ;
+    rdfs:label "touches zone"@en, "rører zone"@da ;
+    rdfs:comment
+        "Relationship between an element/zone interface and the zone it intersects with."@en ,
+        "Relation mellem en element/zone-grænseflade og zonen der krydses."@da ;
+    rdfs:domain fso:ElementZoneInterface ;
+    rdfs:range bot:Zone .
+
+#################
+# DATA PROPERTIES
+#################
+props:flowTemperature
+    schema:domainIncludes fso:FlowSystem .
+props:returnTemperature
+    schema:domainIncludes fso:FlowSystem .
+props:fluid
+    schema:domainIncludes fso:FlowSystem .
+props:heatOutput
+    schema:domainIncludes fso:FlowTerminal .
+
+#################
+# PROD ALIGNMENTS
+#################
+prod:Pipe rdfs:subClassOf fso:Segment .
+prod:Duct rdfs:subClassOf fso:Segment .

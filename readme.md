@@ -21,7 +21,7 @@ This is a demonstration of the application of the [Linked Building Data (LBD) to
 First step is to install a local triplestore. For example the open source Jena Fuseki (get it from [here](https://jena.apache.org/download/index.cgi)). Unzip the file in a local directory and [run the server](https://jena.apache.org/documentation/fuseki2/fuseki-run.html).
 
 ### 2. Load files
-Create a dataset named `1` and load the ttl-files from the data directory in there. For example through the user interface on localhost:3030 (Fuseki).
+Create a dataset named `1` and load the `data/geometry-topology.ttl` RDF file in there (must be stored in a named graph). For example through the user interface on localhost:3030 (Fuseki).
 
 ### 3. Frontent
 

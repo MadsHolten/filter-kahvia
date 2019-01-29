@@ -8,7 +8,9 @@
 
   <button *ngFor="let btn of buttons" mat-stroked-button (click)="clickedButton(btn)">{{btn}}</button>
 
-  <mat-slide-toggle [value]="showPipes" (change)="togglePipes()">Show pipes</mat-slide-toggle>
+  <mat-slide-toggle [checked]="showPipes" (change)="togglePipes()">Show pipes</mat-slide-toggle>
+
+  <mat-slide-toggle [checked]="showDucts" (change)="toggleDucts()">Show ducts</mat-slide-toggle>
   
 </div>
 

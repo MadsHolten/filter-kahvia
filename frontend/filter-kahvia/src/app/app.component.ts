@@ -3,13 +3,13 @@ import { MatDialog } from '@angular/material';
 import { QueryDialogComponent } from './components/dialogs/query-dialog.component';
 
 import { GeoModelService } from './services/geo-model.service';
-import { PipesService } from './services/pipes.service';
+import { MEPService } from './services/mep.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GeoModelService, PipesService]
+  providers: [GeoModelService, MEPService]
 })
 export class AppComponent implements OnInit {
 
@@ -21,10 +21,11 @@ export class AppComponent implements OnInit {
 
   // View
   showPipes: boolean = false;
+  showDucts: boolean = false;
 
   constructor(
     private _gms: GeoModelService,
-    private _ps: PipesService,
+    private _ms: MEPService,
     public dialog: MatDialog
   ){}
 
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
     this.get3DNoPipes();
     // this.get3DPipes();
 
-    this._ps.getPipeInterfaces().subscribe(res => {
+    this._ms.getPipeInterfaces().subscribe(res => {
       console.log(res);
     }, err => console.log(err));
   }
@@ -46,19 +47,39 @@ export class AppComponent implements OnInit {
   public get3DPipes(){
     this._gms.getSpaceModel().subscribe(res => {
       var data = res.data;
-      this._gms.getPipes().subscribe(res => {
+      this._ms.getPipes().subscribe(res => {
+        this.data3d = data.concat(res.data);
+      }, err => console.log(err));
+    }, err => console.log(err));
+  }
+
+  public get3DDucts(){
+    this._gms.getSpaceModel().subscribe(res => {
+      var data = res.data;
+      this._ms.getDucts().subscribe(res => {
         this.data3d = data.concat(res.data);
       }, err => console.log(err));
     }, err => console.log(err));
   }
 
   public togglePipes(){
+    this.showDucts = false;
     if(!this.showPipes){
       this.get3DPipes();
     }else{
       this.get3DNoPipes();
     }
     this.showPipes = !this.showPipes;
+  }
+
+  public toggleDucts(){
+    this.showPipes = false;
+    if(!this.showDucts){
+      this.get3DDucts();
+    }else{
+      this.get3DNoPipes();
+    }
+    this.showDucts = !this.showDucts;
   }
 
   public clickedButton(ev){
@@ -85,7 +106,7 @@ export class AppComponent implements OnInit {
 
     this._gms.getSpaceModel().subscribe(res => {
       var data = res.data;
-      this._ps.getPipesIntersectingZone(uri).subscribe(res => {
+      this._ms.getPipesIntersectingZone(uri).subscribe(res => {
         this.data3d = data.concat(res.data);
       }, err => console.log(err));
     }, err => console.log(err));
